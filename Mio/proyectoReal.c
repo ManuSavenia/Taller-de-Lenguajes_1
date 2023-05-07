@@ -26,5 +26,6 @@ int main()
             agrandar(array, i, n);
         }
     }
+    
     return 0;
 }
