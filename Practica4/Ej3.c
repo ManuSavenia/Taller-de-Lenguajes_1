@@ -2,18 +2,21 @@
 #include <stdlib.h>
 int calculomax(int *p, int n);
 void inicializar(int *p, int n);
-void reservar(int *p, int n);
+int* reservar(int *p, int n);
 int main()
 {
     int *p, n;
     printf("Ingrese la cantidad de elementos del arreglo: ");
     scanf("%d", &n);
-    reservar(p, n);
+    p = reservar(p, n);
+    printf("debug\n");
     inicializar(p, n);
-    printf("El maximo es: %d", calculomax(p, n));
+    printf("debug\n");
+    printf("El maximo es: %d\n", calculomax(p, n));
+    free(p);
     return 0;
 }
-void reservar(int *p, int n)
+int * reservar(int *p, int n)
 {
     p = (int *)malloc(n * sizeof(int));
     if (p == NULL)
@@ -27,7 +30,9 @@ void inicializar(int *p, int n)
     int i;
     for (i = 0; i < n; i++)
     {
-        *(p + i) = rand() % 100;
+        printf("debug %d\n", i);
+        *(p + i) = rand() % 10;
+        printf("debug %d\n", i);
     }
 }
 int calculomax(int *p, int n)
