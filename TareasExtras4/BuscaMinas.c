@@ -43,7 +43,7 @@ int main()
         }
         show_board(matriz);
     }
-
+    printf("El que gana es gay jajaja\n");
     return 0;
 }
 
