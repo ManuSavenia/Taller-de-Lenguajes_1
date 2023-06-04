@@ -1,54 +1,30 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-typedef struct
-{
-    int *data;
-} Stack;
+#include "linkedlist.h"
+typedef list Stack;
 
-Stack *s_create()
+Stack s_create()
 {
-    Stack *s = (Stack *)malloc(sizeof(Stack));
-    s->data = NULL;
-    return s;
+    return initList();
 }
 
 int s_push(Stack *s, int n)
 {
-    s->data = (int *)malloc(sizeof(int));
-    *(s->data) = n;
+    addatStart(s, n);
     return n;
 }
 
 int s_pop(Stack *s)
 {
-    int n = *(s->data);
-    s->data--;
-    free(s->data);
-    return n;
+    return removeFirstElement(s);
 }
 
-int s_top(Stack *s)
+int s_empty(Stack s)
 {
-    return *(s->data);
+    if (sizeOfList(s))
+        return 0;
+    return 1;
 }
-int s_empty(Stack *s)
+
+int s_length(Stack s)
 {
-    if (s->data == NULL)
-    {
-        return 1;
-    }
-    return 0;
-}
-int s_length(Stack *s)
-{
-    int tamanio = 0;
-    int *current = s->data;
-    while (current != NULL)
-    {
-        printf("nashe\n");
-        tamanio++;
-        current++;
-    }
-    return tamanio;
+    return sizeOfList(s);
 }
