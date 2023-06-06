@@ -1,0 +1,2 @@
+
+            strcpy(nombreMax, nombre);
