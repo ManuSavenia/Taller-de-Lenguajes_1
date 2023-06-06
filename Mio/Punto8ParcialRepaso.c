@@ -4,8 +4,9 @@ typedef struct nodo
     int dato;
     struct nodo *siguiente;
 } lista;
-void agregar(lista L);
-void eliminar(lista L);
+void agregar(lista *L);
+void eliminar(lista *L);
+void eliminarTodo(lista *L); 
 int main()
 {
     lista *L = malloc(sizeof(lista));
